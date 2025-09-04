@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>För Ellen ❤️</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Comic Sans MS', cursive, sans-serif; }
+
+  body {
+    background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #fff;
+  }
+
+  .container {
+    text-align: center;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    animation: fadeIn 2s ease forwards;
+  }
+
+  h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+    animation: heartBeat 1s infinite;
+  }
+
+  p {
+    font-size: 1.5em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .heart {
+    color: #ff5e5e;
+    font-size: 2em;
+    animation: float 2s infinite ease-in-out;
+    margin-bottom: 20px;
+  }
+
+  button {
+    background: #ff5e5e;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.2s;
+  }
+
+  button:hover {
+    transform: scale(1.1);
+  }
+
+  @keyframes heartBeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .floating-heart {
+    position: absolute;
+    font-size: 1.5em;
+    color: #ff5e5e;
+    animation: floatUp linear infinite;
+  }
+
+  @keyframes floatUp {
+    0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(-50px) scale(1); opacity: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>❤️ Ellen, jag saknar dig ❤️</h1>
+  <p id="message">Varje stund utan dig känns ofullständig.<br> Jag älskar dig mer än ord kan beskriva!</p>
+  <div class="heart">💖</div>
+  <button onclick="showMessage()">Visa ett gulligt meddelande 💌</button>
+</div>
+
+<script>
+  const colors = ['#ff5e5e','#ff9a9e','#ffd1dc','#ffb6c1'];
+
+  setInterval(() => {
+    const heart = document.createElement('div');
+    heart.classList.add('floating-heart');
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.fontSize = (Math.random() * 2 + 1) + 'em';
+    heart.style.color = colors[Math.floor(Math.random() * colors.length)];
+    heart.style.animationDuration = (Math.random() * 3 + 2) + 's';
+    heart.innerText = '💖';
+    document.body.appendChild(heart);
+    setTimeout(() => { heart.remove(); }, 5000);
+  }, 500);
+
+  const messages = [
+    "Jag tänker på dig hela tiden, Ellen 💕",
+    "Du får mitt hjärta att le varje dag 😘",
+    "Jag längtar efter att krama dig igen 💖",
+    "Du är min solstråle, Ellen ☀️",
+    "Alltid din, nu och för alltid ❤️",
+    "Du gör världen vackrare bara genom att finnas ✨"
+  ];
+
+  function showMessage() {
+    const msg = messages[Math.floor(Math.random() * messages.length)];
+    document.getElementById('message').innerHTML = msg;
+  }
+</script>
+
+</body>
+</html>
