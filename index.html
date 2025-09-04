@@ -29,13 +29,13 @@
   }
 
   h1 {
-    font-size: 3em;
+    font-size: 2.5em;
     margin-bottom: 20px;
     animation: heartBeat 1s infinite;
   }
 
   p {
-    font-size: 1.5em;
+    font-size: 1.3em;
     line-height: 1.5;
     margin-bottom: 20px;
   }
@@ -58,8 +58,8 @@
     transition: transform 0.2s;
   }
 
-  button:hover {
-    transform: scale(1.1);
+  button:active {
+    transform: scale(0.95);
   }
 
   @keyframes heartBeat {
@@ -103,6 +103,7 @@
 <script>
   const colors = ['#ff5e5e','#ff9a9e','#ffd1dc','#ffb6c1'];
 
+  // Flygande hjärtan
   setInterval(() => {
     const heart = document.createElement('div');
     heart.classList.add('floating-heart');
@@ -126,7 +127,8 @@
 
   function showMessage() {
     const msg = messages[Math.floor(Math.random() * messages.length)];
-    document.getElementById('message').innerHTML = msg;
+    const messageElement = document.getElementById('message');
+    messageElement.innerHTML = msg;
   }
 </script>
 
